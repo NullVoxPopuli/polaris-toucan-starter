@@ -35,6 +35,7 @@
     "@glint/environment-ember-loose": "^0.9.1",
     "@glint/environment-ember-template-imports": "^0.9.1",
     "@glint/template": "^0.9.1",
+    "@types/d3": "^7.4.0",
     "@types/ember": "^4.0.0",
     "@types/ember-qunit": "^5.0.0",
     "@types/ember-resolver": "^5.0.11",
@@ -58,6 +59,7 @@
     "@types/htmlbars-inline-precompile": "^3.0.0",
     "@types/qunit": "^2.11.3",
     "@types/rsvp": "^4.0.4",
+    "@types/three": "^0.143.0",
     "autoprefixer": "^10.4.8",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
@@ -120,9 +122,11 @@
   "dependencies": {
     "@crowdstrike/ember-toucan-styles": "^1.0.0",
     "@crowdstrike/tailwind-toucan-base": "^3.0.0",
+    "d3": "^7.6.1",
     "ember-browser-services": "^4.0.0",
     "ember-modifier": "^3.2.7",
     "ember-resources": "^5.0.0",
+    "three": "^0.143.0",
     "tracked-built-ins": "^3.1.0"
   }
 }

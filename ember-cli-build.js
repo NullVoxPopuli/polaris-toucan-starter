@@ -34,7 +34,7 @@ module.exports = function (defaults) {
     staticHelpers: true,
     staticModifiers: true,
     staticComponents: true,
-    splitAtRoutes: ['/'],
+    splitAtRoutes: ['/', '/d3', '/three'],
     packagerOptions: {
       publicAssetURL: '/',
       cssLoaderOptions: {
@@ -43,6 +43,10 @@ module.exports = function (defaults) {
         modules: {},
       },
       webpackConfig: {
+        devServer: {
+          static: './dist',
+          hot: true,
+        },
         module: {
           rules: [
             {

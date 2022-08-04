@@ -3,6 +3,11 @@
 <div class="flex flex-col h-screen leading-none">
   <div class="bg-ground-floor flex flex-col flex-grow min-w-toucan text-titles-and-attributes">
 
+    <nav>
+      <LinkTo @route="d3">d3</LinkTo> |
+      <LinkTo @route="three">three</LinkTo>
+    </nav>
+
     <div class="flex flex-col flex-grow">
       {{outlet}}
     </div>
