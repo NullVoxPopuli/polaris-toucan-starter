@@ -78,10 +78,10 @@
     // work with TypeScript.
     "baseUrl": ".",
     "paths": {
-      "polaris-starter/tests/*": [
+      "polaris-toucan-starter/tests/*": [
         "tests/*"
       ],
-      "polaris-starter/*": [
+      "polaris-toucan-starter/*": [
         "app/*"
       ],
       "*": [

@@ -2,6 +2,8 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+const isProduction = () => EmberApp.env() === 'production';
+
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
@@ -21,16 +23,50 @@ module.exports = function (defaults) {
   // along with the exports of each module as its value.
   const { Webpack } = require('@embroider/webpack');
 
+  /**
+   * Modern CSS config from: https://discuss.emberjs.com/t/ember-modern-css/19614
+   * - lazy loaded CSS
+   * - CSS Modules
+   */
   return require('@embroider/compat').compatBuild(app, Webpack, {
     staticAddonTestSupportTrees: true,
     staticAddonTrees: true,
     staticHelpers: true,
     staticModifiers: true,
     staticComponents: true,
-    // splitAtRoutes: ['route.name'], // can also be a RegExp
-    // packagerOptions: {
-    //    webpackConfig: { }
-    // }
+    splitAtRoutes: ['/'],
+    packagerOptions: {
+      publicAssetURL: '/',
+      cssLoaderOptions: {
+        sourceMap: isProduction() === false,
+        // Native CSS Modules
+        modules: {},
+      },
+      webpackConfig: {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              exclude: /node_modules/,
+              use: [
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    sourceMap: isProduction() === false,
+                    postcssOptions: {
+                      config: './postcss.config.js',
+                    },
+                  },
+                },
+              ],
+            },
+            {
+              test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+              type: 'asset/resource',
+            },
+          ],
+        },
+      },
+    },
   });
 };
-

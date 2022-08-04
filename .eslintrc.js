@@ -25,6 +25,8 @@ module.exports = {
     {
       files: [
         './.eslintrc.js',
+        './postcss.config.js',
+        './tailwind.config.js',
         './.prettierrc.js',
         './.template-lintrc.js',
         './ember-cli-build.js',

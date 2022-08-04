@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   let ENV = {
-    modulePrefix: 'polaris-starter',
+    modulePrefix: 'polaris-toucan-starter',
     environment,
     rootURL: '/',
     locationType: 'history',
