@@ -24,7 +24,7 @@ const Clock = resource(({ on }) => {
 
 const textEffect = modifier(element => {
   console.log('TODO: a visual fancyness!');
-});
+}, { eager: false });
 
 const FancyText: TOC<{
   Blocks: {

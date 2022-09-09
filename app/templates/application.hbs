@@ -1,14 +1,18 @@
 {{page-title "Polaris Toucan Starter"}}
 
 <div class="flex flex-col h-screen leading-none">
-  <div class="bg-ground-floor flex flex-col flex-grow min-w-toucan text-titles-and-attributes">
+  <div class="bg-ground-floor flex flex-col flex-grow text-titles-and-attributes">
 
-    <nav>
-      <LinkTo @route="d3">d3</LinkTo> |
-      <LinkTo @route="three">three</LinkTo>
-    </nav>
+    <div class="flex flex-flow-col place-content-between p-2">
+      <nav>
 
-    <div class="flex flex-col flex-grow">
+      </nav>
+
+      <ThemeSwitcher />
+    </div>
+
+
+    <div class="flex flex-col flex-grow p-4">
       {{outlet}}
     </div>
   </div>

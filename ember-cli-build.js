@@ -40,7 +40,15 @@ module.exports = function (defaults) {
       cssLoaderOptions: {
         sourceMap: isProduction() === false,
         // Native CSS Modules
-        modules: {},
+        modules: {
+          // global mode, can be either global or local
+          // we set to global mode to avoid hashing tailwind classes
+          mode: 'global',
+          // class naming template
+          localIdentName: isProduction()
+            ? '[sha512:hash:base64:5]'
+            : '[path][name]__[local]',
+        },
       },
       webpackConfig: {
         devServer: {
@@ -50,6 +58,7 @@ module.exports = function (defaults) {
         module: {
           rules: [
             {
+              // When webpack sees an import for a CSS files
               test: /\.css$/i,
               exclude: /node_modules/,
               use: [
