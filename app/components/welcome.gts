@@ -4,6 +4,12 @@ import { TrackedObject } from 'tracked-built-ins';
 import { modifier } from 'ember-modifier';
 import { resource } from 'ember-resources';
 
+
+import { Features, References } from './features-references';
+
+/**
+  * Example of defining a Resource inline
+  */
 const Clock = resource(({ on }) => {
   let time = new TrackedObject({ current: new Date() });
   let interval = setInterval(() => {
@@ -22,6 +28,9 @@ const Clock = resource(({ on }) => {
   return () => formatter.format(time.current);
 });
 
+/**
+  * Example of defining a modifier inline
+  */
 const textEffect = modifier(element => {
   console.log('TODO: a visual fancyness!');
 }, { eager: false });
@@ -35,20 +44,24 @@ const FancyText: TOC<{
     <span {{textEffect}}>{{yield}}</span>
   </template>;
 
+
+/**
+  * Examplet typed template-only component
+  */
 const Welcome: TOC<{}> = <template>
-  <h1>Welcome to <FancyText>Polaris</FancyText></h1>
+  <h1 class="type-4xl">Welcome to <FancyText>Polaris</FancyText></h1>
 
-  Now: {{Clock}}<br>
+  <main class="grid gap-4">
 
-  Information here
+    <span class="p-4">
+      Now: {{Clock}}<br>
+    </span>
 
-  What you can do
+    <hr>
 
-  New features
-
-  Resources
-
-  Docs (RFCs atm)
+    <Features />
+    <References />
+  </main>
 </template>
 
 export default Welcome;
